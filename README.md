@@ -40,7 +40,7 @@ d_min = np.min(np.sum(c[1:], axis=1))
 h = p_mat[:, :3]
 hp = np.hstack((np.eye(n-k, dtype=int), h.T))
 ht = hp.T
-print('')
+print('**********')
 print('The Generator Matrix is: ')
 #for r in p_mat: 
 #    print(" ".join(map(str, r)))
@@ -48,20 +48,20 @@ print('The Generator Matrix is: ')
 #    print(" ".join(map(str, r)))
 for r in g_mat: 
     print(" ".join(map(str, r)))
-print('')
+print('**********')
 print(f'Message Bits  Codeword   Hamming Weight')
 code_word = np.hstack((m, c, h_mat.T))
 for r in range(code_word.shape[0]):
     format_row = " ".join(map(str, code_word[r, :k])) + '\t' + " ".join(map(str, code_word[r, k:n+k])) + '\t' + str(code_word[r, -1])
     print(format_row)
-print('')
+print('**********')
 print(f'Minimum Hamming distance : {d_min}')
 # Parity Check matrix
-print('')
+print('**********')
 print(f'Parity Check Matrix')
 for r in hp:
     print(" ".join(map(str, r)))
-print('')
+print('**********')
 print(f'Parity Check Matrix Transpose')
 for r in ht:
     print(" ".join(map(str, r)))
@@ -72,13 +72,13 @@ r_c = np.array(r_code)
 #Syndrome Calculation
 e = np.mod(np.dot(r_c, ht), 2)
 
-#print('')
+#print('**********')
 #print(f'Received codeword Matrix')
 #for r in r_c:
 #    print(" ".join(map(str, r)))
-print('')
+print('**********')
 print(f"Syndeome of given received codeword is : " + " ".join(map(str, e[0])))
-print('')
+print('**********')
 print(f'Syndrome Matrix')
 for i in range(n):
     combined_row = np.concatenate((ht[i, :], np.eye(n, dtype=int)[i,:]))
@@ -94,8 +94,10 @@ add = err + rc
 print(f"The correct codeword is : " + " " .join(map(str,add)))
 ```
 # Output Waveform
-<img width="574" height="528" alt="image" src="https://github.com/user-attachments/assets/30c1dc03-ee09-493f-bf89-4abc8f7bda6a" />
-<img width="534" height="516" alt="image" src="https://github.com/user-attachments/assets/ce408433-fa0c-462a-bd8e-14bc192bfcb6" />
+<img width="996" height="808" alt="image" src="https://github.com/user-attachments/assets/2ac6273d-6125-4bce-8cd9-3e4c24421a34" />
 
 # Results
-The codes could detect multiple errors and correct single errors. They reduced transmission errors significantly compared to uncoded data. Encoding/decoding remained fast and practical for real-world use. The experiment showed linear block codes improve data reliability without complex computations.
+```
+Hence,the Linear Block Code was executed and tesed successfully.
+```
+# Hardware experiment output waveform.
